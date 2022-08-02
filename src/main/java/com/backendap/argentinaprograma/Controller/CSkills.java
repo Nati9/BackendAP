@@ -22,24 +22,24 @@ public class CSkills {
     @Autowired
     SSkills sSkills;
     
-     @GetMapping("lista")  
+     @GetMapping("/lista")  
         public List<Skills> getSkills(){
             return sSkills.getSkills();
         }
     
-    @PostMapping("create")
+    @PostMapping("/create")
         public String createSkills (@RequestBody Skills skills){
             sSkills.saveSkills(skills);
             return "La habilidad fue creada correctamente";
         }
     
-     @DeleteMapping("delete/{id}")
+     @DeleteMapping("/delete/{id}")
         public String deleteSkills (@PathVariable Long id){
             sSkills.deleteSkills(id);
             return "La habilidad fue eliminada correctamente";
         }
         
-     @PutMapping("update/{id}")    
+     @PutMapping("/update/{id}")    
         public Skills skills (@PathVariable Long id,
                                         @RequestParam("nombreSkills") String nuevoNombreSkills,
                                         @RequestParam("percent") int nuevoPercent,
